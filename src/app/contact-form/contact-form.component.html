@@ -1,0 +1,22 @@
+<form #f="ngForm"(ngSubmit)="submit(f)">
+<h1> template form </h1>
+  <div class="form-group">
+    <label for="firstName">firstName</label>
+<input required  minlength="3" maxlength="10"  pattern="lata" ngModel name="firstName"#firstName="ngModel"id="firstName" type="text" class="form-control">
+<div class="alert alert-danger"*ngIf="!firstName.touched&&!firstName.valid">
+
+ <div *ngIf="firstName.errors.required"> firstName is required</div>
+
+  <div *ngIf="firstName.errors.pattern"> file name dosent match pattern</div>
+  </div>
+  </div>
+  <button class="btn btn-primary"[disabled]="!f.valid">Submit</button>
+</form>
+<h2> {{title}}</h2>
+<ul>
+  <!--<li *ngFor="let batch of peoples"> {{batch.id}} {{batch.name}}-->
+<!--</li>-->
+   <li >
+ {{students}}
+  </li>
+  </ul>

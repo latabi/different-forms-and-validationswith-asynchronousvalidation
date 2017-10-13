@@ -1,0 +1,28 @@
+<form [formGroup]="form">
+<h1> Reactive form</h1>
+  <div class ="form-group">
+    <label for="username"> UserName </label>
+    <input
+    formControlName="username"
+    id="username"
+    type="text"
+    class="form-control">
+      <div *ngIf="username.pending" > Checking for uniqueness></div>
+    <div *ngIf="username.touched&&username.invalid" class="alert alert-danger">
+      <div *ngIf="username.errors.required">username id required</div>
+            <div *ngIf="username.errors.minlength">minLength is {{username.errors.minlength.requiredLength}}</div>
+               <div *ngIf="username.errors.CannotContainSpace">UserName cannot contain space</div>
+   <div *ngIf="username.errors.shouldBeUnique">UserName already taken </div>
+
+ 
+  </div>
+  <div class ="form-group">
+    <label for="password"> Password </label>
+    <input
+    formControlName="password"
+    id="password"
+    type="text"
+    class="form-control">
+    <div *ngIf="password.touched&&password.invalid" class="alert alert-danger">password is required
+  </div>
+    <button class="btn btn-primary" [disabled]="!form.valid">Submit </button>

@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+<h1> FormBuilder form </h1>
+  <div class ="form-group">
+    <label for="name"> Name </label>
+    <input
+    formControlName="name"
+    id="name"
+    type="text"
+    class="form-control">
+  
+    <div *ngIf= "name.touched&&name.invalid" class="alert alert-danger">
+      
+             <div *ngIf="name.errors.required"> username is required </div>
+ 
+  </div>
+  
+    <button class="btn btn-primary">Submit</button>
